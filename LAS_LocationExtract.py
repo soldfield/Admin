@@ -22,14 +22,17 @@ import lasio
 dir = os.getcwd()
 las_ls = glob.glob("*.las")
 
+def las_hdr_extract(las_ls):
+    for i in range(len(las_ls)):
+        d = lasio.read(las_ls[0])
+        uwi = d.well["UWI"].value
+        wlnam = d.well["WELL-NAME"].value
+        fldnam = d.well["FIELD-NAME"].value
+        long = str(d.well["LONG"].value)
+        lati = str(d.well["LATI"].value)
+        print(uwi + ', ' + wlnam + ', ' + fldnam  + ', ' +  long  + ', ' +  lati)
 
-for i in range(len(las_ls)):
-    d = lasio.read(las_ls[0])
-    uwi = d.well["UWI"].value
-    wlnam = d.well["WELL-NAME"].value
-    fldnam = d.well["FIELD-NAME"].value
-    long = str(d.well["LONG"].value)
-    lati = str(d.well["LATI"].value)
-    print(uwi + ', ' + wlnam + ', ' + fldnam  + ', ' +  long  + ', ' +  lati)
 
-
+f1=open('./testfile', 'w+')
+f1.write(las_hdr_extract(las_ls))
+f1.close()
