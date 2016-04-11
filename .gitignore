@@ -2,6 +2,7 @@
 *.las
 *.dat
 *.csv
+*.txt
 
 # History files
 .Rhistory
