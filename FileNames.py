@@ -23,3 +23,31 @@ def extn_add(dir, extn):
     result = listdir(dir)
     print(result)
 
+
+path  = 'E:\\NORSAR\\norsar_inputs\\'
+
+os.chdir(path)
+
+def remove_op(fn, operator = '.', extn = '.txt'):
+    """
+    Remove operator from file names and add an extension
+    """
+    fn.split('.')
+    return fn
+
+
+def remove_operator(path, operator='.'):
+    fl = os.listdir(path)
+    for i in range(len(fl)):
+        fn_in = fl[i]
+        fp_in = path + fn_in
+        fn_out = fn_in.split(operator)
+        fn_out = '_'.join(fn_out)
+        fp_out = path + fn_out
+
+        os.rename(fp_in, fp_out)
+
+remove_operator(path, '__')
+
+os.listdir()
+
