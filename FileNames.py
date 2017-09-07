@@ -24,10 +24,6 @@ def extn_add(dir, extn):
     print(result)
 
 
-path  = 'E:\\NORSAR\\norsar_inputs\\'
-
-os.chdir(path)
-
 def remove_op(fn, operator = '.', extn = '.txt'):
     """
     Remove operator from file names and add an extension
@@ -47,7 +43,10 @@ def remove_operator(path, operator='.'):
 
         os.rename(fp_in, fp_out)
 
-remove_operator(path, '__')
+#remove_operator(path, '-')
 
-os.listdir()
+
+path = "C:\\Users\\ee10sjo\\Documents\\BaseCaseSurfaces\\"
+
+os.chdir(path)
 
